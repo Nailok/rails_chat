@@ -11,7 +11,7 @@
         <%= current_user.username %>
       </a>
 
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-warning'  %>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-warning'  %>
       <div class="dropdown-menu dropdown-menu-right" aria-labelled-by="navbarDropdown">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>

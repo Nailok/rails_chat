@@ -1,23 +1,6 @@
 require 'test_helper'
 
-class MessagesChannelTest < ActionCable::Channel::TestCase
-  def test_broadcasts
-    # Check the number of messages broadcasted to the stream
-    assert_broadcasts 'conversation', 0
-    ActionCable.server.broadcast 'messages', { text: 'hello' }
-    assert_broadcasts 'conversation', 1
-
-    # Check the number of messages broadcasted to the stream within a block
-    assert_broadcasts('conversation', 1) do
-      ActionCable.server.broadcast 'conversation', { text: 'hello' }
-    end
-
-    # Check that no broadcasts has been made
-    assert_no_broadcasts('conversation') do
-      ActionCable.server.broadcast 'another_stream', { text: 'hello' }
-    end
-  end
-
+class RoomChannelTest < ActionCable::Channel::TestCase
   def test_subscribed_with_room_number
     # Simulate a subscription creation
     subscribe room_number: 1

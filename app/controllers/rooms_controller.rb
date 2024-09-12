@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
   end
-  
+
   def new
     @room = Room.new
   end
